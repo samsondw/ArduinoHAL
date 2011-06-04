@@ -1,3 +1,6 @@
+#ifndef Arduino_h
+#define Arduino_h
+
 #include "mbed.h"
 
 #define HIGH 0x1
@@ -12,4 +15,7 @@
 
 void pinMode(int, int);
 void digitalWrite(int, int);
-int digitalRead(int);        
+int digitalRead(int);
+
+#endif
+        

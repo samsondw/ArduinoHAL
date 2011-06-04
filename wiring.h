@@ -25,13 +25,12 @@
 #ifndef Wiring_h
 #define Wiring_h
 
-//#include <avr/io.h>
-//#include <stdlib.h>
 #include "binary.h"
 
-#ifdef __cplusplus
-extern "C"{
-#endif
+
+#define uint8_t int
+#define boolean int
+#define byte int
 
 #define HIGH 0x1
 #define LOW  0x0
@@ -57,15 +56,6 @@ extern "C"{
 #define CHANGE 1
 #define FALLING 2
 #define RISING 3
-
-#if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
-#define INTERNAL1V1 2
-#define INTERNAL2V56 3
-#else
-#define INTERNAL 3
-#endif
-#define DEFAULT 1
-#define EXTERNAL 0
 
 // undefine stdlib's abs if encountered
 #ifdef abs
@@ -97,14 +87,9 @@ extern "C"{
 #define bitWrite(value, bit, bitvalue) (bitvalue ? bitSet(value, bit) : bitClear(value, bit))
 
 
-typedef unsigned int word;
-
 #define bit(b) (1UL << (b))
 
-#define uint8_t int
 
-typedef uint8_t boolean;
-typedef uint8_t byte;
 
 void init(void);
 
@@ -130,8 +115,5 @@ void detachInterrupt(uint8_t);
 void setup(void);
 void loop(void);
 
-#ifdef __cplusplus
-} // extern "C"
-#endif
 
 #endif

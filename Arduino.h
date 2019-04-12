@@ -7,13 +7,6 @@
 #define PROGMEM
 #define PSTR(STR) STR
 #endif
-/*
-#ifdef __AVR__
-  #include <avr/pgmspace.h>
-#elif defined(ESP8266) || defined(ESP32)
-  #include <pgmspace.h>
-#endif
-*/
 
 #define ARDUINO 101
 

@@ -11,6 +11,7 @@
 #define ARDUINO 101
 
 #include "wiring.h"
+#include "pins_arduino.h"
 
 #endif
         

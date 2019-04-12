@@ -29,7 +29,7 @@
 
 
 #define boolean bool
-//#define uint8_t int
+#define uint8_t unsigned char
 #define byte uint8_t
 
 #define HIGH 0x1

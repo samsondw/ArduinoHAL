@@ -28,9 +28,9 @@
 #include "binary.h"
 
 
-#define uint8_t int
-#define boolean int
-#define byte int
+#define boolean bool
+//#define uint8_t int
+#define byte uint8_t
 
 #define HIGH 0x1
 #define LOW  0x0
@@ -49,6 +49,8 @@
 
 #define SERIAL  0x0
 #define DISPLAY 0x1
+
+#define SPIClass SPI
 
 #define LSBFIRST 0
 #define MSBFIRST 1

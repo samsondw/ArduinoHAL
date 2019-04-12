@@ -4,5 +4,8 @@
 
 #define Print Stream
 
+#include <string>
+#define String std::string
+
 
 #endif

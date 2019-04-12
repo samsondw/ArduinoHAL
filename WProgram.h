@@ -2,4 +2,8 @@
 #define WProgram_h
 
 
+#include "Arduino.h"
+#include "Print.h"
+
+
 #endif

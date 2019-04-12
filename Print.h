@@ -9,12 +9,13 @@ class Print : public Stream
 {
 public:
 
-int _putc(int value)
-{
+  virtual void   write(uint8_t);
+  int _putc(int value)
+  {
     write((uint8_t)value);
     return value;
-}
-int _getc() { return -1; }
+  }
+  int _getc() { return -1; }
 
 };
 

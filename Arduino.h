@@ -14,6 +14,8 @@
   #include <pgmspace.h>
 #endif
 
+#define ARDUINO 101
+
 #include "wiring.h"
 
 #endif

@@ -2,4 +2,7 @@
 #define Print_h
 
 
+#define Print Stream
+
+
 #endif

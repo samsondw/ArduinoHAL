@@ -16,6 +16,8 @@ public:
     return value;
   }
   int _getc() { return -1; }
+  
+  void print(char *str) { printf(str); }
 
 };
 

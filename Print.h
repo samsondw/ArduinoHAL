@@ -16,7 +16,7 @@ int _putc(int value)
 }
 int _getc() { return -1; }
 
-}
+};
 
 
 #endif

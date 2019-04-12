@@ -8,8 +8,7 @@
 #define PSTR(STR) STR
 #endif
 
-#define ARDUINO 101
-
+#include "Print.h"
 #include "wiring.h"
 #include "pins_arduino.h"
 

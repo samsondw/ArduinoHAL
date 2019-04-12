@@ -9,7 +9,6 @@ class Print : public Stream
 {
 public:
 
-  virtual size_t   write(uint8_t);
   int _putc(int value)
   {
     write((uint8_t)value);
@@ -19,5 +18,7 @@ public:
 
 };
 
+private:
+  virtual size_t   write(uint8_t);
 
 #endif

@@ -1,5 +1,5 @@
 /*
-  wiring_pulse.c - pulseIn() function
+  wiring_shift.c - shiftOut() function
   Part of Arduino - http://www.arduino.cc/
 
   Copyright (c) 2005-2006 David A. Mellis
@@ -24,12 +24,32 @@
 
 #include "wiring_private.h"
 
-/* Measures the length (in microseconds) of a pulse on the pin; state is HIGH
- * or LOW, the type of pulse to measure.  Works on pulses from 2-3 microseconds
- * to 3 minutes in length, but must be called at least a few dozen microseconds
- * before the start of the pulse. */
-unsigned long pulseIn(uint8_t pin, uint8_t state, unsigned long timeout)
+uint8_t shiftIn(DigitalInOut dataPin, DigitalInOut clockPin, uint8_t bitOrder) {
+	uint8_t value = 0;
+	uint8_t i;
+
+	for (i = 0; i < 8; ++i) {
+		digitalWrite(clockPin, HIGH);
+		if (bitOrder == LSBFIRST)
+			value |= digitalRead(dataPin) << i;
+		else
+			value |= digitalRead(dataPin) << (7 - i);
+		digitalWrite(clockPin, LOW);
+	}
+	return value;
+}
+
+void shiftOut(DigitalInOut dataPin, DigitalInOut clockPin, uint8_t bitOrder, uint8_t val)
 {
-	//not implemented
-	return 0; 
+	uint8_t i;
+
+	for (i = 0; i < 8; i++)  {
+		if (bitOrder == LSBFIRST)
+			digitalWrite(dataPin, !!(val & (1 << i)));
+		else	
+			digitalWrite(dataPin, !!(val & (1 << (7 - i))));
+			
+		digitalWrite(clockPin, HIGH);
+		digitalWrite(clockPin, LOW);		
+	}
 }

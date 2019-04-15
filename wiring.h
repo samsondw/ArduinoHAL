@@ -25,6 +25,7 @@
 #ifndef Wiring_h
 #define Wiring_h
 
+#include "Arduino.h"
 #include "binary.h"
 
 
@@ -110,12 +111,9 @@ typedef unsigned char uint8_t;
 
 void init(void);
 
-void pinMode(uint8_t, uint8_t);
-void digitalWrite(uint8_t, uint8_t);
-int digitalRead(uint8_t);
-int analogRead(uint8_t);
-void analogReference(uint8_t mode);
-void analogWrite(uint8_t, int);
+void pinMode(DigitalInOut pin, int mode);
+void digitalWrite(DigitalInOut pin, int value);
+int digitalRead(DigitalInOut pin);
 
 unsigned long millis(void);
 unsigned long micros(void);

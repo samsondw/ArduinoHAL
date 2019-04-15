@@ -28,9 +28,15 @@
 #include "binary.h"
 
 
-#define boolean bool
 typedef unsigned char uint8_t;
+
+#ifndef boolean
+#define boolean bool
+#endif
+
+#ifndef byte
 #define byte uint8_t
+#endif
 
 #define HIGH 0x1
 #define LOW  0x0
@@ -38,8 +44,13 @@ typedef unsigned char uint8_t;
 #define INPUT 0x0
 #define OUTPUT 0x1
 
-//#define true 0x1
-//#define false 0x0
+#ifndef true
+#define true 0x1
+#endif
+
+#ifndef false
+#define false 0x0
+#endif
 
 #define PI 3.1415926535897932384626433832795
 #define HALF_PI 1.5707963267948966192313216916398
@@ -59,14 +70,18 @@ typedef unsigned char uint8_t;
 #define FALLING 2
 #define RISING 3
 
-// undefine stdlib's abs if encountered
-#ifdef abs
-#undef abs
+#ifndef min
+#define min(a,b) ((a)<(b)?(a):(b))
 #endif
 
-//#define min(a,b) ((a)<(b)?(a):(b))
-//#define max(a,b) ((a)>(b)?(a):(b))
-//#define abs(x) ((x)>0?(x):-(x))
+#ifndef max
+#define max(a,b) ((a)>(b)?(a):(b))
+#endif
+
+#ifndef abs
+#define abs(x) ((x)>0?(x):-(x))
+#endif
+
 #define constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
 #define round(x)     ((x)>=0?(long)((x)+0.5):(long)((x)-0.5))
 #define radians(deg) ((deg)*DEG_TO_RAD)

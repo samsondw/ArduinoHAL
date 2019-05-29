@@ -28,7 +28,6 @@
 #include "Arduino.h"
 #include "binary.h"
 
-
 typedef unsigned char uint8_t;
 
 #ifndef boolean
@@ -40,7 +39,7 @@ typedef unsigned char uint8_t;
 #endif
 
 #define HIGH 0x1
-#define LOW  0x0
+#define LOW 0x0
 
 #define INPUT 0x0
 #define OUTPUT 0x1
@@ -59,7 +58,7 @@ typedef unsigned char uint8_t;
 #define DEG_TO_RAD 0.017453292519943295769236907684886
 #define RAD_TO_DEG 57.295779513082320876798154814105
 
-#define SERIAL  0x0
+#define SERIAL 0x0
 #define DISPLAY 0x1
 
 #define SPIClass SPI
@@ -71,43 +70,40 @@ typedef unsigned char uint8_t;
 #define FALLING 2
 #define RISING 3
 
-#ifndef min
-#define min(a,b) ((a)<(b)?(a):(b))
-#endif
+// #ifndef min
+// #define min(a, b) ((a) < (b) ? (a) : (b))
+// #endif
 
-#ifndef max
-#define max(a,b) ((a)>(b)?(a):(b))
-#endif
+// #ifndef max
+// #define max(a,b) ((a)>(b)?(a):(b))
+// #endif
 
-#ifndef abs
-#define abs(x) ((x)>0?(x):-(x))
-#endif
+// #ifndef abs
+// #define abs(x) ((x) > 0 ? (x) : -(x))
+// #endif
 
-#define constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
-#define round(x)     ((x)>=0?(long)((x)+0.5):(long)((x)-0.5))
+#define constrain(amt, low, high) ((amt) < (low) ? (low) : ((amt) > (high) ? (high) : (amt)))
+#define round(x) ((x) >= 0 ? (long)((x) + 0.5) : (long)((x)-0.5))
 #define radians(deg) ((deg)*DEG_TO_RAD)
 #define degrees(rad) ((rad)*RAD_TO_DEG)
-#define sq(x) ((x)*(x))
+#define sq(x) ((x) * (x))
 
 #define interrupts() sei()
 #define noInterrupts() cli()
 
-#define clockCyclesPerMicrosecond() ( F_CPU / 1000000L )
-#define clockCyclesToMicroseconds(a) ( ((a) * 1000L) / (F_CPU / 1000L) )
-#define microsecondsToClockCycles(a) ( ((a) * (F_CPU / 1000L)) / 1000L )
+#define clockCyclesPerMicrosecond() (F_CPU / 1000000L)
+#define clockCyclesToMicroseconds(a) (((a)*1000L) / (F_CPU / 1000L))
+#define microsecondsToClockCycles(a) (((a) * (F_CPU / 1000L)) / 1000L)
 
-#define lowByte(w) ((uint8_t) ((w) & 0xff))
-#define highByte(w) ((uint8_t) ((w) >> 8))
+#define lowByte(w) ((uint8_t)((w)&0xff))
+#define highByte(w) ((uint8_t)((w) >> 8))
 
 #define bitRead(value, bit) (((value) >> (bit)) & 0x01)
 #define bitSet(value, bit) ((value) |= (1UL << (bit)))
 #define bitClear(value, bit) ((value) &= ~(1UL << (bit)))
 #define bitWrite(value, bit, bitvalue) (bitvalue ? bitSet(value, bit) : bitClear(value, bit))
 
-
 #define bit(b) (1UL << (b))
-
-
 
 void init(void);
 
@@ -129,6 +125,5 @@ void detachInterrupt(uint8_t);
 
 void setup(void);
 void loop(void);
-
 
 #endif

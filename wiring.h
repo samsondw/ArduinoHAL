@@ -95,8 +95,8 @@ typedef unsigned char uint8_t;
 #define clockCyclesToMicroseconds(a) (((a)*1000L) / (F_CPU / 1000L))
 #define microsecondsToClockCycles(a) (((a) * (F_CPU / 1000L)) / 1000L)
 
-#define lowByte(w) ((uint8_t)((w)&0xff))
-#define highByte(w) ((uint8_t)((w) >> 8))
+#define lowByte(w) ((uint8_t)((w)&0x00ff))
+#define highByte(w) ((uint8_t)(((w & 0xff00) >> 8) & 0x00ff))
 
 #define bitRead(value, bit) (((value) >> (bit)) & 0x01)
 #define bitSet(value, bit) ((value) |= (1UL << (bit)))
